@@ -1,0 +1,22 @@
+public class Main{
+    public static long[] FibonacciCalculation;
+
+    public static long nth(int n) {
+
+        if (n <= 1) return n;
+        if (FibonacciCalculation[n] !=0){
+            return FibonacciCalculation[n];
+        }{
+        long nthFibonacci = (nth(n - 1) + nth(n - 2));
+        FibonacciCalculation[n] = nthFibonacci;
+        return nthFibonacci;
+        }
+    }
+    public static void main(String[]args){
+        int n = 10;
+        FibonacciCalculation = new long[n+1];
+
+        long Fibonacci =nth(n );
+        System.out.println("The "+n+"th term of the Fibonacci sequence is "+Fibonacci);
+    }
+}
