@@ -1,1 +1,36 @@
 
+/**
+ * This program uses recursion to calculate the nth value of the Fibonacci sequence.
+ *<p>
+ * The program does this by calling Fibonacci variables that store the indices of 0 through n, and itself makes the parameter n.
+ * Due to the structure of the Fibonacci Sequence, to calculate the 10th term of it, we would have to add the previous two numbers.
+ * This led to the program taking a long time because each time it wants to calculate, it has to find the previously calculated Fibonacci result.
+ * To overcome this, I used a primitive long array to store the previous value of each number, which allows for faster calculation.
+ * This unfortunately still limits the program to only being able to find the 92nd Fibonacci Number; anything bigger will start to return negative numbers.
+ */
+
+public class Main{
+    public static long[] FibonacciCalculation;
+    /**
+     * @param n holds the nth element of the Fibonacci sequence
+     * @return the calculation for the Fibonacci sequence
+     */
+    public static long nth(int n) {
+
+        if (n <= 1) return n;
+        if (FibonacciCalculation[n] !=0){
+            return FibonacciCalculation[n];
+        }{
+        long nthFibonacci = (nth(n - 1) + nth(n - 2));
+        FibonacciCalculation[n] = nthFibonacci;
+        return nthFibonacci;
+        }
+    }
+    public static void main(String[]args){
+        int n = 10;
+        FibonacciCalculation = new long[n+1];
+
+        long Fibonacci =nth(n );
+        System.out.println("The "+n+"th term of the Fibonacci sequence is "+Fibonacci);
+    }
+}
